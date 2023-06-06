@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import {useState } from 'react';
 import { Clima5Days } from "../../model/modelGlobal";
 import { convertDate } from '../../function/functions';
 

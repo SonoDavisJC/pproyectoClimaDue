@@ -3,7 +3,13 @@ import { convertPopultation } from "../../function/functions";
 import {FaInfoCircle as Info } from 'react-icons/fa';
 import { BsFillPeopleFill as People } from "react-icons/bs"
 
-const CardInfoCity = ({city: {population, coord}, mostrar}: CordenadasCiudad ) => {
+interface Props {
+    city: any,
+    mostrar: boolean
+}
+
+
+const CardInfoCity = ({city: {population, coord}, mostrar}: Props | CordenadasCiudad ) => {
     return (
         mostrar 
         ? (

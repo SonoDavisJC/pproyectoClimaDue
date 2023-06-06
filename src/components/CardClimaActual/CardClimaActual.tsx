@@ -1,4 +1,3 @@
-import React from "react";
 import { ClimaActual } from "../../model/modelGlobal";
 import { HiLocationMarker as Location } from 'react-icons/hi';
 import {FaInfoCircle as Info } from 'react-icons/fa';
@@ -12,10 +11,12 @@ import {FaCompress as Presion} from 'react-icons/fa';
 
 
 
+interface Props {
+    data: any,
+    mostrar: boolean,
+}
 
-
-
-const CardClimaActual = ({data: {name, sys, main, weather, wind}, mostrar}: ClimaActual) => {
+const CardClimaActual = ({data: {name, sys, main, weather, wind}, mostrar}: Props | ClimaActual) => {
 
     const nameImagen = weather && weather[0]?.icon;
     const rutaImagen = `https://openweathermap.org/img/wn/${nameImagen}@4x.png`;
