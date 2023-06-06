@@ -1,4 +1,5 @@
 export interface ClimaActual {
+    data: {
         name: string,
         sys: {
             country: string
@@ -15,7 +16,12 @@ export interface ClimaActual {
             deg?: number,
             speed: number
         },
-        weather?: any,
+        weather?: {
+            icon?: string
+            main: string,
+            description: string
+        },
+    }, 
     mostrar: boolean 
 }
 
@@ -43,11 +49,12 @@ export interface Clima5Days {
 
 
 export interface CordenadasCiudad {
-    
-    population?: number,
-    coord?: {
-        lat?: number,
-        lon?: number
+    city: {
+        population?: number,
+        coord?: {
+            lat?: number,
+            lon?: number
+        }
     },
     mostrar: boolean
 }

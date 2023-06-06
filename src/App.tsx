@@ -9,11 +9,12 @@ import CuadroSalida from './components/CuadroSalida/CuadroSalida';
 
 
 function App() {
+  type Error = {nameError: string, msgError: string};
 
   const [climaActual, setClimaActual] = useState<Array<[]>>([]);
   const [clima5Days, setClima5Days] = useState<Array<[]>>([]);
   const [infoCity, setInfoCity] = useState<Array<[]>>([]);
-  const [error, setError] = useState<any>({nameError: "", msgError: ""});
+  const [error, setError] = useState<Error>({nameError: "", msgError: ""});
   const [mostrarContenido, setMostrarContenido] = useState<boolean>(false);
 
   

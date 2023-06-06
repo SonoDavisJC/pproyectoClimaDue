@@ -12,11 +12,11 @@ import {FaCompress as Presion} from 'react-icons/fa';
 
 
 interface Props {
-    data: ClimaActual,
+    data: any,
     mostrar: boolean,
 }
 
-const CardClimaActual = ({data: {name, sys, main, weather, wind}, mostrar}: Props) => {
+const CardClimaActual = ({data: {name, sys, main, weather, wind}, mostrar}: Props | ClimaActual) => {
 
     const nameImagen = weather && weather[0]?.icon;
     const rutaImagen = `https://openweathermap.org/img/wn/${nameImagen}@4x.png`;
