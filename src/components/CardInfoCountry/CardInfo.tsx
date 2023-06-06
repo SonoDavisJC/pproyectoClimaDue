@@ -4,12 +4,11 @@ import {FaInfoCircle as Info } from 'react-icons/fa';
 import { BsFillPeopleFill as People } from "react-icons/bs"
 
 interface Props {
-    city: any,
+    city: CordenadasCiudad,
     mostrar: boolean
 }
 
-
-const CardInfoCity = ({city: {population, coord}, mostrar}: Props | CordenadasCiudad ) => {
+const CardInfoCity = ({city: {population, coord}, mostrar}: Props) => {
     return (
         mostrar 
         ? (

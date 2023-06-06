@@ -16,66 +16,6 @@ interface Props {
     mostrar: boolean
 }
 
-const CardDayClima = ({main, weather, wind, dt_txt}: Clima5Days) => {
-
-    const nameImagen = weather?.icon;
-    const rutaImagen = `https://openweathermap.org/img/wn/${nameImagen}@2x.png`
-
-    return (<div className='grow flex flex-row items-center max-sm:flex-col max-sm:gap-5'>
-        <div className='w-60'>
-            <figure className='flex justify-center'>
-                <img src={rutaImagen} alt={nameImagen} />
-            </figure>
-            <div className='text-center'>
-                <p className='text-lg text-sky-300'>{main?.temp} ºC</p>
-                <p className='font-extralight'>{weather?.main}, {weather?.description}</p>
-                <p className='flex flex-col items-center'>
-                    <span className='flex items-center gap-1'>
-                        <span className='text-yellow-600'><Date /></span>
-                        <span>{convertDate(dt_txt).fecha}</span>
-                    </span>
-                    <span className='flex items-center gap-1'>
-                        <span className='text-yellow-600'><Hora /></span>
-                        <span>{convertDate(dt_txt).hora} hrs</span>
-                    </span>
-                </p>
-            </div>
-        </div>
-        <div className='grow flex justify-center'>
-            <div>
-                <p className='font-extralight'>Temp. Maxima : 
-                <span className='text-sky-300'> {main?.temp_max} ºC</span> 
-                </p>
-                <p className='font-extralight'>
-                    Temp. Minima : 
-                    <span className='text-sky-300'> {main?.temp_min} ºC</span>
-                </p>
-                <p className='font-extralight'>
-                    Humedad : 
-                    <span className='text-sky-300'> {main?.humidity} %</span>
-                </p>
-                <p className='font-extralight'> 
-                    Feels like : 
-                    <span className='text-sky-300'> {main?.feels_like} º</span>
-                </p>
-                <p className='font-extralight'> 
-                    Presión : 
-                    <span className='text-sky-300'> {main?.pressure} Hpa</span>
-                </p>
-                <p className='font-extralight'>
-                    Velocidad de Viento :
-                    <span className='text-sky-300'> {wind?.speed} m/s</span>
-                </p>
-                <p className='font-extralight'>
-                    Rafaga de Viento :  
-                    <span className='text-sky-300'> {wind?.gust} m/s</span>
-                </p>
-            </div>
-        </div>
-    </div>);
-}
-
-
 const Card5DaysClima = ({data: {list}, mostrar}: Props) => {
     const [indice, setIndice] = useState<number>(0);
     const [disabledNext, setDisabledNext] = useState<boolean>(false);
@@ -138,6 +78,67 @@ const Card5DaysClima = ({data: {list}, mostrar}: Props) => {
         : (null)
         
     )
+}
+
+
+
+const CardDayClima = ({main, weather, wind, dt_txt}: Clima5Days) => {
+
+    const nameImagen = weather?.icon;
+    const rutaImagen = `https://openweathermap.org/img/wn/${nameImagen}@2x.png`
+
+    return (<div className='grow flex flex-row items-center max-sm:flex-col max-sm:gap-5'>
+        <div className='w-60'>
+            <figure className='flex justify-center'>
+                <img src={rutaImagen} alt={nameImagen} />
+            </figure>
+            <div className='text-center'>
+                <p className='text-lg text-sky-300'>{main?.temp} ºC</p>
+                <p className='font-extralight'>{weather?.main}, {weather?.description}</p>
+                <p className='flex flex-col items-center'>
+                    <span className='flex items-center gap-1'>
+                        <span className='text-yellow-600'><Date /></span>
+                        <span>{convertDate(dt_txt).fecha}</span>
+                    </span>
+                    <span className='flex items-center gap-1'>
+                        <span className='text-yellow-600'><Hora /></span>
+                        <span>{convertDate(dt_txt).hora} hrs</span>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div className='grow flex justify-center'>
+            <div>
+                <p className='font-extralight'>Temp. Maxima : 
+                <span className='text-sky-300'> {main?.temp_max} ºC</span> 
+                </p>
+                <p className='font-extralight'>
+                    Temp. Minima : 
+                    <span className='text-sky-300'> {main?.temp_min} ºC</span>
+                </p>
+                <p className='font-extralight'>
+                    Humedad : 
+                    <span className='text-sky-300'> {main?.humidity} %</span>
+                </p>
+                <p className='font-extralight'> 
+                    Feels like : 
+                    <span className='text-sky-300'> {main?.feels_like} º</span>
+                </p>
+                <p className='font-extralight'> 
+                    Presión : 
+                    <span className='text-sky-300'> {main?.pressure} Hpa</span>
+                </p>
+                <p className='font-extralight'>
+                    Velocidad de Viento :
+                    <span className='text-sky-300'> {wind?.speed} m/s</span>
+                </p>
+                <p className='font-extralight'>
+                    Rafaga de Viento :  
+                    <span className='text-sky-300'> {wind?.gust} m/s</span>
+                </p>
+            </div>
+        </div>
+    </div>);
 }
 
 export default Card5DaysClima;
